@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -22,11 +22,14 @@
     $rate = 15;
     $weeklyPay = null;
 
-    if($hours == 0){
+    if($hours <= 0){
         $weeklyPay = 0;
     }
-    else{
+    elseif($hours <= 40){
         $weeklyPay = $hours * $rate;
+    }
+    else{
+        $weeklyPay = ($rate * 40) + (($hours - 40) * ($rate * 1.5));
     }
 
     echo "You made \${$weeklyPay} this week!!";
